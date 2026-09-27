@@ -1,0 +1,10 @@
+/* Keep each original photograph's natural composition on wide screens. */
+.gallery-side{display:grid;grid-row:span 2;grid-template-rows:repeat(2,1fr);gap:12px}
+@media (min-width:681px){
+  .gallery-grid{grid-template-columns:4fr 3fr;grid-template-rows:auto;align-items:start}
+  .gallery-grid>div:first-child{grid-row:auto;aspect-ratio:4558/4652}
+  .gallery-side{grid-row:auto;grid-template-rows:repeat(2,auto)}
+  .gallery-side .photo-placeholder{aspect-ratio:7008/4672;min-height:0}
+  .gallery-grid .photo-placeholder{background-size:cover;background-position:center}
+}
+@media (max-width:680px){.gallery-side{gap:8px}}

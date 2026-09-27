@@ -1,0 +1,5 @@
+/* Use the quieter right side of the couple photo as a soft crop on desktop,
+   bringing Yash and Divya into the visual centre. */
+@media (min-width:681px){
+  .gallery-grid .photo-two{background-size:112%;background-position:left center}
+}
