@@ -1,0 +1,23 @@
+/* Make the big monogram a soft watermark behind the names, instead of a second headline */
+/* Positions against .hero (already position:relative in styles.css) — NOT .hero-content,
+   which only sizes to its own text and would push the watermark off-center. */
+.hero-content .monogram{
+  position:absolute;
+  left:0;
+  right:0;
+  top:40%;
+  transform:translateY(-50%);
+  margin:0;
+  text-align:center;
+  font-size:clamp(180px,32vw,420px);
+  line-height:1;
+  color:rgba(255,255,255,.05);
+  text-shadow:none;
+  z-index:-1;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.hero-content .monogram span{color:inherit}
+@media(max-width:680px){
+  .hero-content .monogram{font-size:clamp(160px,60vw,260px)}
+}

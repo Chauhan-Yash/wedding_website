@@ -1,0 +1,36 @@
+/* Gap 1: real photography in the hero, instead of a flat gradient.
+   Uses a web-optimized copy of couple_1.JPG (2200px wide, ~450KB instead
+   of the original 2.75MB) — add couple_1-hero.jpg to your img/ folder. */
+.hero{
+  background-image:
+    linear-gradient(180deg, rgba(20,4,9,.32) 0%, rgba(20,4,9,.22) 42%, rgba(15,3,7,.78) 100%),
+    radial-gradient(ellipse at 15% 15%, rgba(122,48,75,.35) 0%, transparent 45%),
+    url('img/couple_1-hero.jpg');
+  background-size: cover;
+  /* On wide/short desktop screens, cover crops the TOP of the photo (where the
+     groom's head sits, closer to the frame edge than the bride's) — 8% keeps
+     both heads clear on typical 16:9–21:9 desktop windows. */
+  background-position: center 8%;
+  background-repeat: no-repeat;
+}
+
+@media(max-width:680px){
+  .hero{
+    /* On narrow/tall phone screens, cover instead crops the SIDES. The couple
+       isn't perfectly centered in the photo (the bride sits closer to the
+       left edge than the groom does to the right), so a plain "center" crop
+       cuts into her before it touches him. Shifting left rebalances it. */
+    background-position: 38% center;
+  }
+}
+
+/* Keep the flora/petal decorations and monogram watermark reading clearly
+   against the photo — a touch more contrast than they needed on flat maroon. */
+.hero-content .eyebrow,
+.hero-content .hero-copy,
+.hero-content .hero-date{
+  text-shadow: 0 2px 18px rgba(10,2,5,.45);
+}
+.hero h1{
+  text-shadow: 0 4px 26px rgba(10,2,5,.5);
+}

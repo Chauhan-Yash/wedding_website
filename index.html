@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="gallery-desktop.css" />
     <link rel="stylesheet" href="gallery-focus.css" />
     <link rel="stylesheet" href="gallery-mobile.css" />
+    <link rel="stylesheet" href="hero-monogram.css" />
+    <link rel="stylesheet" href="hero-photo.css" />
+    <link rel="stylesheet" href="butterflies.css" />
+    <link rel="stylesheet" href="scratch-reveal.css" />
   </head>
   <body>
     <div class="page-grain"></div>
@@ -33,6 +37,11 @@
       <section class="hero" id="home">
         <div class="flora flora-top" aria-hidden="true"><span>✦</span><i></i><b></b><em></em></div>
         <div class="floating-petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="butterflies" aria-hidden="true">
+          <i class="butterfly"><svg class="butterfly-svg" viewBox="0 0 120 100"><g class="wing wing-left"><path d="M60,45 C45,10 10,8 6,32 C3,50 30,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C48,78 18,84 12,66 C8,52 32,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><g class="wing wing-right"><path d="M60,45 C75,10 110,8 114,32 C117,50 90,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C72,78 102,84 108,66 C112,52 88,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><ellipse cx="60" cy="49" rx="3.4" ry="23" fill="#fff8f2" stroke="#4a1426" stroke-width="1" stroke-opacity=".5"/><path d="M60,28 C55,18 47,15 43,13 M60,28 C65,18 73,15 77,13" stroke="#fff8f2" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="43" cy="13" r="1.6" fill="#fff8f2"/><circle cx="77" cy="13" r="1.6" fill="#fff8f2"/></svg></i>
+          <i class="butterfly"><svg class="butterfly-svg" viewBox="0 0 120 100"><g class="wing wing-left"><path d="M60,45 C45,10 10,8 6,32 C3,50 30,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C48,78 18,84 12,66 C8,52 32,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><g class="wing wing-right"><path d="M60,45 C75,10 110,8 114,32 C117,50 90,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C72,78 102,84 108,66 C112,52 88,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><ellipse cx="60" cy="49" rx="3.4" ry="23" fill="#fff8f2" stroke="#4a1426" stroke-width="1" stroke-opacity=".5"/><path d="M60,28 C55,18 47,15 43,13 M60,28 C65,18 73,15 77,13" stroke="#fff8f2" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="43" cy="13" r="1.6" fill="#fff8f2"/><circle cx="77" cy="13" r="1.6" fill="#fff8f2"/></svg></i>
+          <i class="butterfly"><svg class="butterfly-svg" viewBox="0 0 120 100"><g class="wing wing-left"><path d="M60,45 C45,10 10,8 6,32 C3,50 30,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C48,78 18,84 12,66 C8,52 32,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><g class="wing wing-right"><path d="M60,45 C75,10 110,8 114,32 C117,50 90,58 60,45 Z" fill="#f7cdc2" fill-opacity=".95" stroke="#fff8f2" stroke-opacity=".55" stroke-width="1.5"/><path d="M60,52 C72,78 102,84 108,66 C112,52 88,48 60,52 Z" fill="#bd8f52" fill-opacity=".9" stroke="#fff8f2" stroke-opacity=".4" stroke-width="1.5"/></g><ellipse cx="60" cy="49" rx="3.4" ry="23" fill="#fff8f2" stroke="#4a1426" stroke-width="1" stroke-opacity=".5"/><path d="M60,28 C55,18 47,15 43,13 M60,28 C65,18 73,15 77,13" stroke="#fff8f2" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="43" cy="13" r="1.6" fill="#fff8f2"/><circle cx="77" cy="13" r="1.6" fill="#fff8f2"/></svg></i>
+        </div>
         <div class="hero-content reveal active">
           <p class="eyebrow">Together with their families</p>
           <div class="monogram">Y<span>&amp;</span>D</div>
@@ -52,7 +61,16 @@
         <div class="count-grid reveal" aria-label="Countdown to 13 December 2026">
           <div><strong id="days">000</strong><span>Days</span></div><div><strong id="hours">00</strong><span>Hours</span></div><div><strong id="minutes">00</strong><span>Minutes</span></div><div><strong id="seconds">00</strong><span>Seconds</span></div>
         </div>
-        <p class="date-stamp reveal">13 <b>·</b> 12 <b>·</b> 2026</p>
+        <div class="scratch-card reveal" id="scratchCard">
+          <div class="scratch-reveal">
+            <p class="eyebrow">Save the date</p>
+            <p class="scratch-date">Sunday <b>·</b> 13 December 2026</p>
+            <a class="button button-wine" id="addToCalendar" href="#">Add to calendar <span>+</span></a>
+          </div>
+          <canvas id="scratchCanvas" class="scratch-canvas" aria-hidden="true"></canvas>
+          <p class="scratch-hint" aria-hidden="true">✦ Scratch to reveal ✦</p>
+          <div class="confetti-root" id="confettiRoot" aria-hidden="true"></div>
+        </div>
       </section>
 
       <section class="story section" id="story">
@@ -114,5 +132,6 @@
     </footer>
     <script src="rsvp-config.js"></script>
     <script src="script.js"></script>
+    <script src="scratch-reveal.js"></script>
   </body>
 </html>
