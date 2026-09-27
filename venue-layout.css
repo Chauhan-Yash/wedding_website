@@ -1,0 +1,15 @@
+/* .venue was a 2-column grid (card + decorative map graphic). Now that the
+   map graphic is removed, re-center the card as a single column on desktop
+   instead of leaving a blank gap where the second column used to be.
+   Mobile already stacks fine as-is (single flex child), so this only
+   applies above the 680px breakpoint. */
+@media(min-width:681px){
+  .venue{
+    display:block;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .venue-card{
+    width:100%;
+  }
+}

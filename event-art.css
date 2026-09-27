@@ -1,0 +1,30 @@
+/* Per-event themed illustrations, replacing the shared glyph icon.
+   Hand-drawn line/dot art in the site's own palette (no stock photos —
+   the actual ceremonies haven't happened yet, so there's no real
+   photography for them). Each SVG uses currentColor so a single
+   `color` + `opacity` rule tints the whole illustration per card. */
+
+.event-card{overflow:hidden}
+.event-card > *{position:relative;z-index:1}
+.event-art{
+  position:absolute;
+  z-index:0;
+  right:-18px;
+  bottom:-18px;
+  width:68%;
+  max-width:230px;
+  pointer-events:none;
+}
+.event-art svg{display:block;width:100%;height:auto}
+
+.event-card:not(.event-dark) .event-art{color:var(--wine);opacity:.15}
+.event-card.event-dark .event-art{color:var(--blush);opacity:.3}
+
+/* Removing .event-icon means the heading lost its old top spacing — restore
+   a similar rhythm directly on the heading instead. */
+.event-card h3{margin-top:30px}
+
+@media(max-width:680px){
+  .event-art{width:58%;max-width:170px;right:-14px;bottom:-14px}
+  .event-card h3{margin-top:22px}
+}
