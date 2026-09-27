@@ -22,6 +22,12 @@
        cuts into her before it touches him. Shifting left rebalances it. */
     background-position: 38% center;
   }
+  /* The base mobile padding-top (80px, from styles.css) lands the "Together
+     with their families" eyebrow right over the bride's face. A bit more
+     clearance drops it below her, onto plain background. */
+  .hero-content{
+    padding-top: 132px;
+  }
 }
 
 /* Keep the flora/petal decorations and monogram watermark reading clearly

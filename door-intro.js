@@ -31,8 +31,21 @@
         finish();
       }
     });
+    // Anything sized off getBoundingClientRect() before this point (the
+    // scratch-reveal canvas, for one) measured the page while .site-zoom
+    // was still scaled down to .9 — so it came out smaller than its real
+    // layout box. Once the zoom finishes and the page is at its true size,
+    // nudge a resize event so anything listening re-measures correctly.
+    if (zoom) {
+      zoom.addEventListener('transitionend', function (e) {
+        if (e.target === zoom && e.propertyName === 'transform') {
+          window.dispatchEvent(new Event('resize'));
+        }
+      });
+    }
     // Fallback in case transitionend doesn't fire on this target/browser.
     setTimeout(finish, 4000);
+    setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 4300);
   }
 
   if (document.readyState === 'complete') {

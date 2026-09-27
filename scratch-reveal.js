@@ -124,6 +124,18 @@
     document.fonts.ready.then(() => { if (!revealed) sizeCanvas(); });
   }
 
+  // The card carries the site-wide ".reveal" scroll-in animation, which
+  // holds it at a slightly reduced scale (transform, not layout size) until
+  // it enters the viewport. getBoundingClientRect() reports that reduced
+  // *visual* size, so any sizing done before the card is revealed comes out
+  // a hair smaller than the card's real size once the scale lifts. Re-size
+  // once that reveal transform finishes so the canvas always matches.
+  card.addEventListener('transitionend', function (e) {
+    if (e.target === card && e.propertyName === 'transform' && !revealed) {
+      sizeCanvas();
+    }
+  });
+
   const calendarBtn = document.getElementById('addToCalendar');
   if (calendarBtn) {
     calendarBtn.addEventListener('click', function (e) {

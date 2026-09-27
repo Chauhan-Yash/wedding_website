@@ -10,7 +10,7 @@
 @keyframes wing-r{from{transform:scaleX(1)}to{transform:scaleX(.45)}}
 
 .butterfly:nth-child(1){left:8%;top:68%;animation:drift-a 17s ease-in-out infinite}
-.butterfly:nth-child(2){left:82%;top:16%;width:34px;height:28px;animation:drift-b 21s ease-in-out infinite;animation-delay:-6s}
+.butterfly:nth-child(2){left:50%;top:10%;width:34px;height:28px;animation:drift-b 21s ease-in-out infinite;animation-delay:-6s}
 .butterfly:nth-child(3){left:46%;top:82%;width:30px;height:25px;animation:drift-c 19s ease-in-out infinite;animation-delay:-11s}
 .butterfly:nth-child(2) .wing-left,.butterfly:nth-child(2) .wing-right{animation-delay:-.1s}
 .butterfly:nth-child(3) .wing-left,.butterfly:nth-child(3) .wing-right{animation-duration:.26s}

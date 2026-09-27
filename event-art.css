@@ -1,30 +1,56 @@
-/* Per-event themed illustrations, replacing the shared glyph icon.
-   Hand-drawn line/dot art in the site's own palette (no stock photos —
-   the actual ceremonies haven't happened yet, so there's no real
-   photography for them). Each SVG uses currentColor so a single
-   `color` + `opacity` rule tints the whole illustration per card. */
+/* Per-event themed backdrops. Each card carries its own portrait-format
+   backdrop image, cropped to the top so the ornate archway/frame stays in
+   view, with a dark gradient laid over it so the card's text stays legible
+   against a busy photo regardless of how light or dark that photo is. */
 
 .event-card{overflow:hidden}
 .event-card > *{position:relative;z-index:1}
-.event-art{
-  position:absolute;
-  z-index:0;
-  right:-18px;
-  bottom:-18px;
-  width:68%;
-  max-width:230px;
-  pointer-events:none;
+
+.event-engagement{
+  background-image:
+    linear-gradient(180deg, rgba(48,10,30,.05) 0%, rgba(28,4,16,.66) 100%),
+    url('img/event-engagement.jpg');
+  background-size: cover;
+  background-position: center top;
+  color: var(--cream);
 }
-.event-art svg{display:block;width:100%;height:auto}
+.event-haldi{
+  background-image:
+    linear-gradient(180deg, rgba(64,40,0,.1) 0%, rgba(42,26,0,.72) 100%),
+    url('img/event-haldi.jpg');
+  background-size: cover;
+  background-position: center top;
+  color: var(--cream);
+}
+.event-sangeet{
+  background-image:
+    linear-gradient(180deg, rgba(3,20,14,.12) 0%, rgba(2,12,9,.7) 100%),
+    url('img/event-sangeet.jpg');
+  background-size: cover;
+  background-position: center top;
+  color: var(--cream);
+}
+.event-wedding{
+  background-image:
+    linear-gradient(180deg, rgba(20,4,9,.1) 0%, rgba(10,2,4,.7) 100%),
+    url('img/event-wedding.jpg');
+  background-size: cover;
+  background-position: center top;
+  color: var(--cream);
+}
 
-.event-card:not(.event-dark) .event-art{color:var(--wine);opacity:.15}
-.event-card.event-dark .event-art{color:var(--blush);opacity:.3}
-
-/* Removing .event-icon means the heading lost its old top spacing — restore
-   a similar rhythm directly on the heading instead. */
-.event-card h3{margin-top:30px}
-
-@media(max-width:680px){
-  .event-art{width:58%;max-width:170px;right:-14px;bottom:-14px}
-  .event-card h3{margin-top:22px}
+/* All four now sit on photos with a dark gradient, so a light inner border
+   and hover colour (previously reserved for the "dark" card variant) suit
+   every card, not just alternating ones. */
+.event-engagement:after,
+.event-haldi:after,
+.event-sangeet:after,
+.event-wedding:after{
+  border-color: rgba(249,244,236,.4);
+}
+.event-engagement .event-location:hover,
+.event-haldi .event-location:hover,
+.event-sangeet .event-location:hover,
+.event-wedding .event-location:hover{
+  color: #f4cabe;
 }
