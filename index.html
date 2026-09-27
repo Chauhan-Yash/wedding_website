@@ -20,10 +20,28 @@
     <link rel="stylesheet" href="scratch-reveal.css" />
     <link rel="stylesheet" href="venue-layout.css" />
     <link rel="stylesheet" href="event-art.css" />
+    <link rel="stylesheet" href="door-intro.css" />
   </head>
   <body>
+    <div class="door-intro" id="doorIntro" aria-hidden="true">
+      <div class="door-panel door-left">
+        <div class="door-face">
+          <div class="door-ring"></div>
+        </div>
+      </div>
+      <div class="door-panel door-right">
+        <div class="door-face">
+          <div class="door-ring"></div>
+        </div>
+      </div>
+      <div class="door-crest">
+        <div class="crest-ring"></div>
+        <div class="crest-mono">Y<span>&amp;</span>D</div>
+      </div>
+    </div>
     <div class="page-grain"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="site-zoom" id="siteZoom">
     <nav class="nav" aria-label="Main navigation">
       <a class="nav-mark" href="#home">Y<span>&amp;</span>D</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
@@ -47,7 +65,6 @@
           <div class="divider"><span></span> <b>✦</b> <span></span></div>
           <h1>Yash <i>&amp;</i> Divya</h1>
           <p class="hero-copy">invite you to celebrate the beginning<br />of their forever</p>
-          <p class="hero-date">Sunday · 13 December 2026</p>
           <a href="#countdown" class="button button-ivory">Discover our celebration <span>↓</span></a>
         </div>
         <div class="flora flora-bottom" aria-hidden="true"><span>✦</span><i></i><b></b><em></em></div>
@@ -79,7 +96,7 @@
         </div>
         <div class="story-copy reveal">
           <p class="eyebrow">Our story</p>
-          <h2 class="section-title">A little bit of<br /><i>destiny</i></h2>
+          <h2 class="section-title">Where it all<br /><i>began</i></h2>
           <p>Some stories are written in the stars. Ours began with a simple hello and grew into a thousand small moments we now call home.</p>
           <p>With full hearts, we are so happy to invite you to the first page of our forever.</p>
           <span class="signature">Yash &amp; Divya</span>
@@ -133,8 +150,10 @@
     <footer>
       <div class="footer-monogram">Y<span>&amp;</span>D</div><p>With love &amp; gratitude</p><h2>Yash <i>&amp;</i> Divya</h2><p class="footer-date">13 December 2026</p><div class="footer-line"></div><p class="small">We cannot wait to celebrate with you.</p>
     </footer>
+    </div>
     <script src="rsvp-config.js"></script>
     <script src="script.js"></script>
     <script src="scratch-reveal.js"></script>
+    <script src="door-intro.js"></script>
   </body>
 </html>

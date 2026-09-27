@@ -1,0 +1,139 @@
+/* Royal door-opening intro. Two ornate panels meet in the center behind a
+   gold crest; on load they swing open on a 3D hinge to reveal the site,
+   then the whole overlay is removed from flow. */
+
+html.door-lock, html.door-lock body { overflow: hidden; height: 100%; }
+
+.door-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  overflow: hidden;
+  /* No background of its own — the two panels are the only opaque thing
+     here. That way, as they swing open there's real page underneath the
+     growing gap immediately, never a flat colour screen. */
+  perspective: 1800px;
+}
+.door-intro.hidden { display: none; }
+
+.door-panel {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #2f0a1a; /* shows for an instant while the photo decodes */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  /* Opacity fades out only in the tail of the swing, so the panel is fully
+     gone by the moment the rotation finishes — no lingering tint, no hard
+     cut when the overlay is removed. */
+  transition: transform 3.2s cubic-bezier(.76,0,.18,1), opacity 1.2s ease 2s;
+}
+.door-left  { transform-origin: left center; }
+.door-right { transform-origin: right center; }
+
+.door-face {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(10,2,6,.12), rgba(10,2,6,.12)),
+    url('img/door-leaf-left.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* The seam (inner) edge is the anchor, not the hinge edge — so as this
+     grows past 1 it's only ever the outer/hinge side and the top/bottom
+     that get carried further off-screen. The seam edge stays put until
+     the parent's rotation actually sweeps it away, so the two panels
+     never appear to push into each other at the start of the swing. */
+  transform-origin: 100% 50%;
+  transition: transform 3.2s cubic-bezier(.76,0,.18,1);
+}
+.door-right .door-face {
+  background-image:
+    linear-gradient(rgba(10,2,6,.12), rgba(10,2,6,.12)),
+    url('img/door-leaf-right.jpg');
+  transform-origin: 0% 50%;
+}
+
+.door-ring {
+  position: absolute;
+  top: 50%;
+  width: clamp(22px, 3vw, 32px);
+  height: clamp(22px, 3vw, 32px);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 3px solid #dcb377;
+  background: radial-gradient(circle at 35% 30%, #f2d6a3, #8a5f30 70%);
+  box-shadow: 0 2px 8px rgba(0,0,0,.55), inset 0 0 0 1px rgba(0,0,0,.2);
+}
+.door-left  .door-ring { right: 9%; }
+.door-right .door-ring { left: 9%; }
+
+.door-crest {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: clamp(84px, 13vw, 140px);
+  height: clamp(84px, 13vw, 140px);
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #5c1e37 0%, #330c1c 78%);
+  box-shadow: 0 6px 20px rgba(0,0,0,.5), inset 0 0 0 1px rgba(189,143,82,.25);
+  transition: opacity .8s ease, transform 1.4s cubic-bezier(.3,.7,.3,1);
+}
+.crest-ring { position: absolute; inset: 0; border: 2px solid var(--gold); border-radius: 50%; }
+.crest-ring:before {
+  content: ''; position: absolute; inset: 8px;
+  border: 1px solid rgba(189,143,82,.55); border-radius: 50%;
+}
+.crest-mono {
+  position: relative;
+  font: 28px var(--serif);
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+.crest-mono span {
+  font: 18px var(--script);
+  margin: 0 3px;
+  vertical-align: 2px;
+  color: var(--blush);
+}
+
+/* The panel itself only rotates on its true hinge. The scale-up that hides
+   the rectangular edges lives on .door-face instead (see above), anchored
+   to the seam side, so the two effects don't fight: rotation sweeps the
+   seam edge away while the face's own growth only pushes the far/hinge
+   side and top/bottom off-screen — never the seam pushing inward. */
+.door-intro.opening .door-left  { transform: rotateY(96deg);  opacity: 0; }
+.door-intro.opening .door-right { transform: rotateY(-96deg); opacity: 0; }
+.door-intro.opening .door-left  .door-face { transform: scale(1.6); }
+.door-intro.opening .door-right .door-face { transform: scale(1.6); }
+.door-intro.opening .door-crest { opacity: 0; transform: translate(-50%,-50%) scale(.55); }
+
+/* The page behind the doors starts a touch zoomed out and eases up to its
+   normal size in step with the doors opening — a small forward "camera"
+   push that reads as walking into the scene rather than the doors just
+   sliding out of the way. */
+.site-zoom {
+  transform: scale(.9);
+  transform-origin: 50% 50%;
+  transition: transform 3.4s cubic-bezier(.16,.8,.28,1);
+}
+.site-zoom.zoomed { transform: scale(1); }
+
+@media (max-width: 680px) {
+  .door-crest { width: 104px; height: 104px; }
+  .crest-mono { font-size: 19px; letter-spacing: 0; }
+  .crest-mono span { font-size: 13px; margin: 0 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door-panel, .door-crest { transition: opacity .5s ease; }
+  .door-intro.opening .door-left,
+  .door-intro.opening .door-right { transform: none; opacity: 0; }
+  .door-intro.opening .door-crest { transform: translate(-50%,-50%); opacity: 0; }
+  .site-zoom { transform: none; transition: none; }
+}
