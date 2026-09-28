@@ -48,9 +48,15 @@
     setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 2800);
   }
 
-  if (document.readyState === 'complete') {
+  // Open on DOMContentLoaded (HTML/CSS parsed), not window 'load' (every
+  // image on the whole page finished downloading). The door only needs its
+  // own two panel images, which are small and requested immediately by the
+  // browser regardless — waiting for below-the-fold gallery photos too just
+  // adds dead time before the site is visible, and gets worse the more
+  // photos the site ever has.
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
     setTimeout(openDoors, 400);
   } else {
-    window.addEventListener('load', function () { setTimeout(openDoors, 400); });
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(openDoors, 400); });
   }
 })();

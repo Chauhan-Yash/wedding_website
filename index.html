@@ -6,6 +6,14 @@
     <meta name="theme-color" content="#4b1727" />
     <meta name="description" content="The wedding celebration of Yash &amp; Divya" />
     <title>Y &amp; D — A Celebration of Love</title>
+
+    <!-- Fetch the door panels and hero photo first, ahead of everything
+         else on the page (gallery photos included), since these are the
+         only images visible before/during the door-opening intro. -->
+    <link rel="preload" as="image" href="img/door-leaf-left.jpg" />
+    <link rel="preload" as="image" href="img/door-leaf-right.jpg" />
+    <link rel="preload" as="image" href="img/couple_1-hero.jpg" />
+
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
