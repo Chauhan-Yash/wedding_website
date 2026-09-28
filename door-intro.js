@@ -44,13 +44,13 @@
       });
     }
     // Fallback in case transitionend doesn't fire on this target/browser.
-    setTimeout(finish, 4000);
-    setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 4300);
+    setTimeout(finish, 2500);
+    setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 2800);
   }
 
   if (document.readyState === 'complete') {
-    setTimeout(openDoors, 850);
+    setTimeout(openDoors, 400);
   } else {
-    window.addEventListener('load', function () { setTimeout(openDoors, 850); });
+    window.addEventListener('load', function () { setTimeout(openDoors, 400); });
   }
 })();

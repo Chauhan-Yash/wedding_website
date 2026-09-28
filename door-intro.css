@@ -27,7 +27,7 @@ html.door-lock, html.door-lock body { overflow: hidden; height: 100%; }
   /* Opacity fades out only in the tail of the swing, so the panel is fully
      gone by the moment the rotation finishes — no lingering tint, no hard
      cut when the overlay is removed. */
-  transition: transform 3.2s cubic-bezier(.76,0,.18,1), opacity 1.2s ease 2s;
+  transition: transform 2s cubic-bezier(.76,0,.18,1), opacity .75s ease 1.25s;
 }
 .door-left  { transform-origin: left center; }
 .door-right { transform-origin: right center; }
@@ -47,7 +47,7 @@ html.door-lock, html.door-lock body { overflow: hidden; height: 100%; }
      the parent's rotation actually sweeps it away, so the two panels
      never appear to push into each other at the start of the swing. */
   transform-origin: 100% 50%;
-  transition: transform 3.2s cubic-bezier(.76,0,.18,1);
+  transition: transform 2s cubic-bezier(.76,0,.18,1);
 }
 .door-right .door-face {
   background-image:
@@ -120,7 +120,7 @@ html.door-lock, html.door-lock body { overflow: hidden; height: 100%; }
 .site-zoom {
   transform: scale(.9);
   transform-origin: 50% 50%;
-  transition: transform 3.4s cubic-bezier(.16,.8,.28,1);
+  transition: transform 2.2s cubic-bezier(.16,.8,.28,1);
 }
 .site-zoom.zoomed { transform: scale(1); }
 
