@@ -1,0 +1,46 @@
+/* Parents' names in the footer, replacing the repeated "Y&D" monogram
+   (the header/nav already carries that mark, so the footer doesn't need
+   it twice). Wrapped in divs rather than left as plain <p> so it escapes
+   the generic small-caps `footer>p` styling used for the eyebrow lines. */
+
+.footer-monogram{ display: none; }
+
+.footer-parents{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 52px;
+  margin: 30px 0 6px;
+}
+.footer-parents .parent-block{
+  max-width: 220px;
+}
+.footer-parents .parent-label{
+  margin: 0 0 12px;
+  font: 600 9px var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--blush);
+  opacity: .8;
+}
+.footer-parents .parent-name{
+  margin: 0 0 5px;
+  font: 20px var(--serif);
+  color: var(--cream);
+}
+.footer-parents-divider{
+  width: 1px;
+  align-self: stretch;
+  background: rgba(239,210,203,.3);
+  margin-top: 3px;
+}
+
+@media (max-width: 680px){
+  .footer-parents{
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 26px;
+  }
+  .footer-parents-divider{ display: none; }
+}
